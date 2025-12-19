@@ -87,7 +87,7 @@ namespace seneca {
         return cout;
     }
 
-    Account::operator bool()
+    Account::operator bool() const
     {
         if (isValidNumber(m_number))
         {
@@ -100,12 +100,12 @@ namespace seneca {
         }
     }
 
-    Account::operator int()
+    Account::operator int() const
     {
         return m_number;
     }
 
-    Account::operator double()
+    Account::operator double() const
     {
         return m_balance;
     }
@@ -167,7 +167,7 @@ namespace seneca {
 
     Account& Account::operator+=(double val)
     {
-        if (*this && val >= 0.0)
+        if (*this && val > 0.0)
         {
             m_balance += val;
         }
@@ -218,7 +218,7 @@ namespace seneca {
 
     Account& Account::operator++()
     {
-        if (*this) {
+        if (~*this) {
             m_balance += 1.0;
         }
         return *this;
@@ -234,7 +234,7 @@ namespace seneca {
 
     Account& Account::operator--()
     {
-        if (*this)
+        if (~*this)
         {
             m_balance -= 1.0;
         }

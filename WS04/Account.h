@@ -30,9 +30,9 @@ namespace seneca {
         Account(const char* holderName = nullptr);
         Account(const char* holderName, int number, double balance);
         std::ostream& display()const;
-        operator bool();
-        operator int();
-        operator double(); 
+        operator bool() const;
+        operator int() const;
+        operator double() const; 
         operator const char* ();
 
         char& operator[] (int index);
